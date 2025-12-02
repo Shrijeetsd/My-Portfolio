@@ -5,54 +5,44 @@ import { motion, AnimatePresence } from "framer-motion";
 const CERTS = {
   tech: [
     {
-      title: "Flipkart Hackathon",
-      org: "Flipkart",
-      date: "2022",
-      img: "/certs/flipkart.jpg",
-      link: "/certs/flipkart.jpg",
-    },
-    {
-      title: "Solution Challenge",
-      org: "Google Developers",
+      title: "Building Language Models on AWS",
+      org: "AWS",
       date: "2023",
-      img: "/certs/hack2skill.png",
-      link: "/certs/hack2skill.png",
+      img: "/certs/aws-llm.png",
+      link: "/certs/aws-llm.png",
     },
     {
-      title: "ADira",
-      org: "SCET AI Club",
+      title: "Foundations of Prompt Engineering",
+      org: "AWS",
+      date: "2023",
+      img: "/certs/aws-prompt-engineering.png",
+      link: "/certs/aws-prompt-engineering.png",
+    },
+    {
+      title: "Android Apps Development",
+      org: "Udemy",
       date: "2025",
-      img: "/certs/adira.png",
-      link: "/certs/adira.png",
+      img: "/certs/android-dev.png",
+      link: "/certs/android-dev.png",
     },
-  ],
-  other: [
     {
-      title: "codathon",
-      org: "SCET tech fest",
+      title: "Web Development Masterclass",
+      org: "Udemy",
+      date: "2023",
+      img: "/certs/web-dev-masterclass.png",
+      link: "/certs/web-dev-masterclass.png",
+    },
+    {
+      title: "Prompt Engg. & AI in Trade",
+      org: "Udemy",
       date: "2025",
-      img: "/certs/codathon.png",
-      link: "/certs/codathon.png",
-    },
-    {
-      title: "bugbuzz",
-      org: "SCET tech fest",
-      date: "2025",
-      img: "/certs/bugbuzz.png",
-      link: "/certs/bugbuzz.png",
-    },
-    {
-      title: "Dataloom",
-      org: "SCET",
-      date: "2024",
-      img: "/certs/dataloom.png",
-      link: "/certs/dataloom.png",
+      img: "/certs/prompt-engg-trade.png",
+      link: "/certs/prompt-engg-trade.png",
     },
   ],
 };
 
 export default function Certificates() {
-  const [tab, setTab] = useState("tech");
   const [selectedCert, setSelectedCert] = useState(null);
 
   return (
@@ -60,31 +50,8 @@ export default function Certificates() {
       <div className="card" style={{ background: "#111", borderRadius: 12, padding: 24 }}>
         <h2 style={{ fontSize: "1.8rem", color: "#fff", marginBottom: 4 }}>Certificates 🏅</h2>
         <p className="lead" style={{ color: "#aaa" }}>
-          Explore my certifications — technical & others.
+          Explore my technical certifications.
         </p>
-
-        {/* Tabs */}
-        <div style={{ display: "flex", gap: 10, marginTop: 16 }}>
-          {["tech", "other"].map((t) => (
-            <button
-              key={t}
-              onClick={() => setTab(t)}
-              className={tab === t ? "tab active" : "tab"}
-              style={{
-                padding: "8px 18px",
-                borderRadius: 8,
-                border: "none",
-                cursor: "pointer",
-                background: tab === t ? "#007bff" : "#333",
-                color: "#fff",
-                fontWeight: 500,
-                transition: "0.3s",
-              }}
-            >
-              {t === "tech" ? "Tech" : "Others"}
-            </button>
-          ))}
-        </div>
 
         {/* Certificates Grid */}
         <div
@@ -97,7 +64,7 @@ export default function Certificates() {
           }}
         >
           <AnimatePresence mode="wait">
-            {CERTS[tab].map((c, idx) => (
+            {CERTS.tech.map((c, idx) => (
               <motion.div
                 key={c.title}
                 className="cert card"

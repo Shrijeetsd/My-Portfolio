@@ -56,25 +56,11 @@ const AboutMe = () => {
             marginBottom: "1rem",
           }}
         >
-          Hi, I’m <strong>Kunj Desai</strong> — an aspiring{" "}
-          <strong>Artificial Intelligence Engineer</strong> and{" "}
-          <strong>Machine Learning enthusiast</strong> who loves turning ideas
-          into intelligent systems. I’m deeply fascinated by how data and
-          algorithms can shape the future of healthcare, automation, and
-          creativity in technology.
+          Hi, I’m <strong>Shrijeet Desai</strong> — a <strong>Full-Stack Developer</strong> specializing in Java, React, Node.js, and modern web technologies. I build scalable applications, clean UIs, and production-ready solutions with a focus on smart, efficient engineering.
         </p>
 
         <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.8)" }}>
-          Beyond code, I enjoy exploring design, experimenting with motion and
-          interaction, and finding ways to blend{" "}
-          <strong>artistic creativity</strong> with{" "}
-          <strong>technical precision</strong>. My goal is to build solutions
-          that not only perform — but also inspire.
-        </p>
-
-        <p>
-            4th-year B.Tech AI Engineering student with hands-on experience in ML & DL Projects. Proficient in Python, scikitlearn,pytorch,tensorflow and data preprocessing. Seeking internship opportunities to apply skills and contribute to
-            impactful AI solutions.
+          Currently pursuing B.Tech CSE and exploring AI-driven development and next-gen tech.
         </p>
 
         {/* --- Education Section --- */}
@@ -131,7 +117,7 @@ const AboutMe = () => {
                     fontSize: "1.25rem",
                   }}
                 >
-                  B.Tech in Artificial Intelligence and Data Science
+                  B.Tech in Computer Science Engineering
                 </h4>
                 <p
                   style={{
@@ -139,105 +125,15 @@ const AboutMe = () => {
                     marginBottom: "0.2rem",
                   }}
                 >
-                  <strong>S.C.E.T (Sarvajanik University)</strong> — Surat,
-                  Gujarat
+                  <strong>DBATU University | YTC, Satara</strong>
                 </p>
                 <p style={{ color: "rgba(255,255,255,0.7)" }}>
-                  4th Year (Pursuing) | GPA: 9.0
+                  2024 | CGPA: 7.0
                 </p>
-                <p style={{ color: "rgba(255,255,255,0.7)" }}>2022 – 2026</p>
               </div>
             </motion.div>
 
-            {/* --- Education Card 2 --- */}
-            <motion.div
-              whileHover={{
-                scale: 1.02,
-                boxShadow: "0 0 25px rgba(0,255,200,0.15)",
-              }}
-              transition={{ duration: 0.3 }}
-              style={{
-                background: "rgba(255,255,255,0.05)",
-                borderRadius: "14px",
-                padding: "1.5rem 2rem",
-                border: "1px solid rgba(255,255,255,0.08)",
-                boxShadow: "0 0 15px rgba(0,255,200,0.05)",
-                display: "flex",
-                alignItems: "center",
-                gap: "1.2rem",
-              }}
-            >
-              <FaGraduationCap size={38} color="var(--accent)" />
-              <div>
-                <h4
-                  style={{
-                    color: "var(--accent)",
-                    marginBottom: "0.4rem",
-                    fontSize: "1.25rem",
-                  }}
-                >
-                  Higher Secondary Education (12th Grade)
-                </h4>
-                <p
-                  style={{
-                    color: "rgba(255,255,255,0.85)",
-                    marginBottom: "0.2rem",
-                  }}
-                >
-                  <strong>R.S.M. Poonawala Experimental School</strong> — Ambika
-                  Niketan, Surat
-                </p>
-                <p style={{ color: "rgba(255,255,255,0.7)" }}>
-                  Gujarat Board | Percentage: 78%
-                </p>
-                <p style={{ color: "rgba(255,255,255,0.7)" }}>Completed in 2022</p>
-              </div>
-            </motion.div>
-
-            {/* --- Education Card 3 --- */}
-            <motion.div
-              whileHover={{
-                scale: 1.02,
-                boxShadow: "0 0 25px rgba(0,255,200,0.15)",
-              }}
-              transition={{ duration: 0.3 }}
-              style={{
-                background: "rgba(255,255,255,0.05)",
-                borderRadius: "14px",
-                padding: "1.5rem 2rem",
-                border: "1px solid rgba(255,255,255,0.08)",
-                boxShadow: "0 0 15px rgba(0,255,200,0.05)",
-                display: "flex",
-                alignItems: "center",
-                gap: "1.2rem",
-              }}
-            >
-              <FaSchool size={36} color="var(--accent)" />
-              <div>
-                <h4
-                  style={{
-                    color: "var(--accent)",
-                    marginBottom: "0.4rem",
-                    fontSize: "1.25rem",
-                  }}
-                >
-                  Secondary Education (10th Grade)
-                </h4>
-                <p
-                  style={{
-                    color: "rgba(255,255,255,0.85)",
-                    marginBottom: "0.2rem",
-                  }}
-                >
-                  <strong>R.S.M. Poonawala Experimental School</strong> — Surat,
-                  Gujarat
-                </p>
-                <p style={{ color: "rgba(255,255,255,0.7)" }}>
-                  Gujarat Board | Percentage: 69%
-                </p>
-                <p style={{ color: "rgba(255,255,255,0.7)" }}>Completed in 2020</p>
-              </div>
-            </motion.div>
+            {/* --- Education Card 2 & 3 Removed as per request --- */}
           </div>
         </motion.div>
       </motion.div>

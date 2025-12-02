@@ -14,9 +14,9 @@ const SKILLS = [
   { name: "MySQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
   { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
   { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-  { name: "TensorFlow", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" },
-  { name: "PyTorch", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" },
-  { name: "OpenCV", logo: "https://upload.wikimedia.org/wikipedia/commons/3/32/OpenCV_Logo_with_text_svg_version.svg" },
+  { name: "Spring Boot", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
+  { name: "Hibernate", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hibernate/hibernate-original.svg" },
+  { name: "AI", logo: "https://cdn-icons-png.flaticon.com/512/2103/2103633.png" },
 ];
 
 const ROWS = [
@@ -24,17 +24,16 @@ const ROWS = [
     { title: "Programming Languages", items: ["Python", "C", "C++", "Java"] },
     { title: "Web Technologies", items: ["HTML", "CSS", "JavaScript", "React"] },
     { title: "Databases & Tools", items: ["MySQL", "MongoDB", "Git"] },
-    { title: "Frameworks & Libraries", items: ["TensorFlow", "PyTorch", "OpenCV"] },
+    { title: "Frameworks", items: ["Spring Boot", "Hibernate"] },
   ],
   [
     {
       title: "Core Concepts",
       items: [
         "Data Structures & Algorithms",
+        "Artificial Intelligence",
         "Machine Learning",
         "Deep Learning",
-        "YOLO Object Detection",
-        "Explainable AI (XAI)",
       ],
     },
     {

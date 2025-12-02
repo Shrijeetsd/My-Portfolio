@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import emailjs from "emailjs-com";
 
 import githubLogo from "../../public/github.png";
 import linkedinLogo from "../../public/linkedin.png";
@@ -10,7 +9,7 @@ import instagramLogo from "../../public/insta.png";
 import facebookLogo from "../../public/facebook.png";
 
 import "../CSS/Contact.css"
-import '../index.css' 
+import '../index.css'
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -33,46 +32,53 @@ export default function Contact() {
       return;
     }
 
-    const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
-    const isEmail = emailPattern.test(form.contact);
-    if (!isEmail && isNaN(form.contact)) {
-      setStatus("⚠️ Please enter a valid email or phone number.");
-      return;
-    }
-
     setStatus("Sending...");
 
-    emailjs
-      .send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          contact_info: form.contact,
-          subject: form.subject,
-          message: form.message,
-        },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        () => {
-          setStatus("✅ Message sent successfully!");
-          setForm({ name: "", contact: "", subject: "", message: "" });
-        },
-        (error) => {
-          console.error("FAILED...", error);
-          setStatus("❌ Failed to send. Try again later.");
+    fetch("https://formsubmit.co/ajax/shrijitdesai8459@gmail.com", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        name: form.name,
+        email: form.contact, // Changed to 'email' for FormSubmit
+        subject: form.subject,
+        message: form.message,
+        _captcha: "false"
+      })
+    })
+      .then(async (response) => {
+        const text = await response.text();
+        console.log("Raw Response:", text);
+        try {
+          return JSON.parse(text);
+        } catch (e) {
+          console.error("JSON Parse Error:", e);
+          throw new Error("Server returned non-JSON response. Check console.");
         }
-      );
+      })
+      .then(data => {
+        console.log("Parsed Data:", data);
+        if (data.success === "true" || data.success === true) {
+          setStatus("✅ Message sent! Check your email (Spam) to ACTIVATE.");
+          setForm({ name: "", contact: "", subject: "", message: "" });
+        } else {
+          setStatus("❌ Failed: " + (data.message || "Unknown error"));
+        }
+      })
+      .catch(error => {
+        console.error("Fetch Error:", error);
+        setStatus("❌ Error. See Console (F12) for details.");
+      });
   };
 
   const quickLinks = [
-    { img: githubLogo, title: "GitHub", link: "https://github.com/kunj2803" },
-    { img: linkedinLogo, title: "LinkedIn", link: "https://www.linkedin.com/in/kunj-desai-07717b293/" },
-    { img: gmailLogo, title: "Email", link: "mailto:kunjd2803@gmail.com" },
-    { img: whatsappLogo, title: "WhatsApp", link: "https://wa.me/+918758209508" },
-    { img: instagramLogo, title: "Instagram", link: "https://www.instagram.com/kunj_2834/" },
-    { img: facebookLogo, title: "Facebook", link: "https://www.facebook.com/kunj.desai.222608" },
+    { img: githubLogo, title: "GitHub", link: "https://github.com/Shrijeetsd" },
+    { img: linkedinLogo, title: "LinkedIn", link: "https://www.linkedin.com/in/shrijeetdesai/" },
+    { img: gmailLogo, title: "Email", link: "mailto:shrijitdesai8459@gmail.com" },
+    { img: whatsappLogo, title: "WhatsApp", link: "https://wa.me/+918459318217" },
+    { img: instagramLogo, title: "Instagram", link: "https://www.instagram.com/shrijit_07?igsh=MTJ0ZGZoNG1iNzdnbA%3D%3D&utm_source=qr" },
   ];
 
   return (

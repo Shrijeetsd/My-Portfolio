@@ -7,23 +7,23 @@ export default function Blog() {
   const defaultPosts = [
     {
       id: 1,
-      title: "Why I Love Building AI Projects",
-      text: "Working on AI-based systems like mammogram cancer detection has taught me how impactful technology can be when applied to healthcare. Combining deep learning with real-world problems is my favorite way to innovate.",
+      title: "Coding with AI",
+      text: "Honestly, AI has changed how I code. It's not about letting it do everything, but having a smart assistant to bounce ideas off of. It lets me focus on the fun logic parts instead of getting stuck on syntax.",
     },
     {
       id: 2,
-      title: "My Thoughts on Design & Aesthetics",
-      text: "I believe design should be a balance between functionality and emotion. Dark themes with minimalist layouts always inspire me to create something that feels personal and futuristic.",
+      title: "The Joy of Debugging",
+      text: "There's a weird satisfaction in spending hours tracking down a bug and finally fixing it. That 'aha!' moment when everything clicks is why I love software engineering. It's frustrating, but worth it.",
     },
     {
       id: 3,
-      title: "Balancing Tech and Creativity",
-      text: "As someone who codes and dances, I’ve realized creativity isn’t limited to art — it also lives in algorithms. Each project is like choreography for the mind.",
+      title: "Building for People",
+      text: "I try to remember that real people use what I build. It's not just about clean code; it's about making someone's day a little easier or more interesting. That's the real goal.",
     },
     {
       id: 4,
-      title: "The Beauty of Simple Code",
-      text: "Clean code isn’t just about fewer lines — it’s about clarity. Elegance in code feels like poetry to me — each function should have rhythm and purpose.",
+      title: "Always a Student",
+      text: "Tech moves so fast it's scary sometimes. But that's also the fun part. I'm constantly learning something new, whether it's a new framework or just a better way to write a loop. You never stop being a student here.",
     },
   ];
 
@@ -101,9 +101,8 @@ export default function Blog() {
                 disabled={!!p.userVote}
                 whileTap={{ scale: 0.85 }}
                 whileHover={{ scale: 1.15 }}
-                className={`vote-btn-circle agree ${
-                  p.userVote === "agree" ? "active" : ""
-                }`}
+                className={`vote-btn-circle agree ${p.userVote === "agree" ? "active" : ""
+                  }`}
               >
                 <ThumbsUp size={20} />
                 <motion.span
@@ -121,9 +120,8 @@ export default function Blog() {
                 disabled={!!p.userVote}
                 whileTap={{ scale: 0.85 }}
                 whileHover={{ scale: 1.15 }}
-                className={`vote-btn-circle disagree ${
-                  p.userVote === "disagree" ? "active" : ""
-                }`}
+                className={`vote-btn-circle disagree ${p.userVote === "disagree" ? "active" : ""
+                  }`}
               >
                 <ThumbsDown size={20} />
                 <motion.span

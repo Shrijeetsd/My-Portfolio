@@ -1,11 +1,13 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import React, { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import "../CSS/Home.css"
-import '../index.css' 
+import '../index.css'
+import { GlowingCard } from '../components/GlowingCard'
+import { ArrowUp } from 'lucide-react'
 
 
 // 🖼️ Import Assets
-import photo from '../../public/photo.jpg'
+import photo from '../../public/shrijeet.jpg'
 import githubLogo from '../../public/github.png'
 import linkedinLogo from '../../public/linkedin.png'
 import gmailLogo from '../../public/gmail.png'
@@ -14,35 +16,81 @@ import instagramLogo from '../../public/insta.png'
 import facebookLogo from '../../public/facebook.png'
 
 export default function Home() {
+  const [showScrollTop, setShowScrollTop] = useState(false)
+
   const professions = [
-    'AI Enthusiast',
-    'Machine Learning Engineer',
-    "Deep Learning Expert",
-    'Computer Vision Researcher',
-    'Developer',
+    'Software Developer',
+    'AI Developer',
+    'Full-Stack Developer',
+    'Java Expert',
+    'React Specialist',
   ]
 
   const quickLinks = [
-    { img: githubLogo, title: 'GitHub', link: 'https://github.com/kunj2803' },
-    { img: linkedinLogo, title: 'LinkedIn', link: 'https://www.linkedin.com/in/kunj-desai-07717b293/' },
-    { img: gmailLogo, title: 'Email', link: 'mailto:kunjd2803@gmail.com' },
-    { img: whatsappLogo, title: 'WhatsApp', link: 'https://wa.me/+918758209508' },
-    { img: instagramLogo, title: 'Instagram', link: 'https://www.instagram.com/kunj_2834/' },
-    { img: facebookLogo, title: 'Facebook', link: 'https://www.facebook.com/kunj.desai.222608' },
+    { img: githubLogo, title: 'GitHub', link: 'https://github.com/Shrijeetsd' },
+    { img: linkedinLogo, title: 'LinkedIn', link: 'https://www.linkedin.com/in/shrijeetdesai/' },
+    { img: gmailLogo, title: 'Email', link: 'mailto:shrijitdesai8459@gmail.com' },
   ]
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScrollTop(true)
+      } else {
+        setShowScrollTop(false)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const [text, setText] = useState('')
+  const [isDeleting, setIsDeleting] = useState(false)
+  const fullText = "Software/ AI Developer | Full-Stack Engineer | Tech Explorer"
+
+  useEffect(() => {
+    let timeout;
+
+    if (isDeleting) {
+      if (text.length > 0) {
+        timeout = setTimeout(() => {
+          setText(fullText.substring(0, text.length - 1))
+        }, 50)
+      } else {
+        timeout = setTimeout(() => setIsDeleting(false), 500)
+      }
+    } else {
+      if (text.length < fullText.length) {
+        timeout = setTimeout(() => {
+          setText(fullText.substring(0, text.length + 1))
+        }, 100)
+      } else {
+        timeout = setTimeout(() => setIsDeleting(true), 2000)
+      }
+    }
+
+    return () => clearTimeout(timeout)
+  }, [text, isDeleting])
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    })
+  }
 
   return (
     <section className="home-section">
       {/* Typing Effect Styles */}
       <style>
         {`
-          @keyframes typing { from { width: 0; } to { width: 100%; } }
           @keyframes blink { 50% { border-color: transparent; } }
         `}
       </style>
 
       {/* Top Section: Photo + Info */}
-      <div className="home-top">
+      <div className="home-top" id="home-top">
         {/* Left: Glowing Photo */}
         <motion.div
           initial={{ opacity: 0, x: -60 }}
@@ -85,13 +133,13 @@ export default function Home() {
               transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
               className="home-name"
             >
-              Kunj Desai
+              Shrijeet Desai
             </motion.span>
           </h1>
 
           {/* Typing Animated Text */}
-          <p className="typing-effect">
-            Artificial Intelligence Engineer | Frontend Developer | Tech Explorer
+          <p className="typing-effect" style={{ minHeight: '1.5em', borderRight: '2px solid var(--accent)', paddingRight: '5px', animation: 'blink 0.7s infinite', display: 'inline-block' }}>
+            {text}
           </p>
 
           {/* Profession Tags */}
@@ -103,17 +151,21 @@ export default function Home() {
             ))}
           </motion.div>
 
+
+
           {/* Info Cards */}
           <motion.div className="info-cards">
             {[
-              { label: '📍 Location', value: 'Surat, Gujarat, India' },
-              { label: '💼 Expertise', value: 'AI/ML, Problem Solving' },
-              { label: '📧 Contact', value: 'kunjd2803@gmail.com' },
+              { label: '📍 Location', value: 'Pune, Maharashtra' },
+              { label: '💼 Expertise', value: 'Java, React, Node.js, AI' },
+              { label: '📧 Contact', value: 'shrijitdesai8459@gmail.com' },
             ].map((info, i) => (
-              <motion.div key={i} whileHover={{ y: -4, scale: 1.05 }} transition={{ type: 'spring', stiffness: 250 }} className="info-card">
-                <strong>{info.label}</strong>
-                <p>{info.value}</p>
-              </motion.div>
+              <GlowingCard key={i} className="info-card">
+                <motion.div whileHover={{ y: -4, scale: 1.05 }} transition={{ type: 'spring', stiffness: 250 }} style={{ padding: '1.5rem' }}>
+                  <strong>{info.label}</strong>
+                  <p>{info.value}</p>
+                </motion.div>
+              </GlowingCard>
             ))}
           </motion.div>
         </motion.div>
@@ -143,6 +195,39 @@ export default function Home() {
           ))}
         </div>
       </motion.div>
+
+      {/* Scroll to Top Button */}
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            onClick={scrollToTop}
+            style={{
+              position: 'fixed',
+              bottom: '30px',
+              right: '30px',
+              width: '50px',
+              height: '50px',
+              borderRadius: '50%',
+              background: 'var(--accent)',
+              color: 'white',
+              border: 'none',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 4px 15px rgba(0,0,0,0.3)',
+              zIndex: 1000
+            }}
+            whileHover={{ scale: 1.1, backgroundColor: 'var(--accent-2)' }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <ArrowUp size={24} />
+          </motion.button>
+        )}
+      </AnimatePresence>
 
     </section>
   )

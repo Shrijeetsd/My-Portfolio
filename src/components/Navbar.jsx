@@ -52,27 +52,30 @@ export default function Navbar() {
         }}
       >
         {/* Logo */}
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <motion.div
-            className="logo"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ type: "spring", stiffness: 200 }}
-            style={{
-              fontWeight: "bold",
-              fontSize: "1.4rem",
-              color: "var(--accent)",
-            }}
-          >
-            KD
-          </motion.div>
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <h1 style={{ margin: 0, fontSize: 14 }}>Kunj Desai</h1>
-            <div style={{ fontSize: 12, color: "var(--muted)" }}>
-              ML • AI • Developer
+        {/* Logo */}
+        <NavLink to="/" style={{ textDecoration: "none", color: "inherit" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <motion.div
+              className="logo"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ type: "spring", stiffness: 200 }}
+              style={{
+                fontWeight: "bold",
+                fontSize: "1.4rem",
+                color: "var(--accent)",
+              }}
+            >
+              SD
+            </motion.div>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <h1 style={{ margin: 0, fontSize: 14 }}>Shrijeet Desai</h1>
+              <div style={{ fontSize: 12, color: "var(--muted)" }}>
+                Software • AI • Developer
+              </div>
             </div>
           </div>
-        </div>
+        </NavLink>
 
         {/* Desktop links */}
         <div
@@ -80,7 +83,7 @@ export default function Navbar() {
           style={{
             display: showButton ? "none" : "flex",
             justifyContent: "center",
-            gap: "2rem",
+            gap: "1rem",
             alignItems: "center",
             flexGrow: 1,
           }}
@@ -90,52 +93,12 @@ export default function Navbar() {
               key={l.to}
               to={l.to}
               end
+              className={({ isActive }) => `shiny-btn ${isActive ? "active" : ""}`}
               style={{
-                position: "relative",
-                fontSize: "0.95rem",
                 textDecoration: "none",
-                color: "white",
-                fontWeight: 500,
               }}
             >
-              {({ isActive }) => (
-                <motion.div
-                  whileHover={{
-                    scale: 1.1,
-                    color: "var(--accent)",
-                    textShadow: "0 0 8px var(--accent)",
-                  }}
-                  transition={{ duration: 0.3 }}
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                  }}
-                >
-                  <motion.span
-                    animate={{ color: isActive ? "var(--accent)" : "white" }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {l.label}
-                  </motion.span>
-                  {isActive && (
-                    <motion.div
-                      layoutId="underline"
-                      initial={{ opacity: 0, y: 5 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3 }}
-                      style={{
-                        width: "70%",
-                        height: "2px",
-                        marginTop: "4px",
-                        borderRadius: "1px",
-                        backgroundColor: "var(--accent)",
-                        boxShadow: "0 0 6px var(--accent)",
-                      }}
-                    />
-                  )}
-                </motion.div>
-              )}
+              {l.label}
             </NavLink>
           ))}
         </div>
