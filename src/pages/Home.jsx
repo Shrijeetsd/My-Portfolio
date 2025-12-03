@@ -7,13 +7,13 @@ import { ArrowUp } from 'lucide-react'
 
 
 // 🖼️ Import Assets
-import photo from '../../public/shrijeet.jpg'
-import githubLogo from '../../public/github.png'
-import linkedinLogo from '../../public/linkedin.png'
-import gmailLogo from '../../public/gmail.png'
-import whatsappLogo from '../../public/whatsapp.png'
-import instagramLogo from '../../public/insta.png'
-import facebookLogo from '../../public/facebook.png'
+const photo = `${import.meta.env.BASE_URL}shrijeet.jpg`
+const githubLogo = `${import.meta.env.BASE_URL}github.png`
+const linkedinLogo = `${import.meta.env.BASE_URL}linkedin.png`
+const gmailLogo = `${import.meta.env.BASE_URL}gmail.png`
+const whatsappLogo = `${import.meta.env.BASE_URL}whatsapp.png`
+const instagramLogo = `${import.meta.env.BASE_URL}insta.png`
+const facebookLogo = `${import.meta.env.BASE_URL}facebook.png`
 
 export default function Home() {
   const [showScrollTop, setShowScrollTop] = useState(false)
@@ -110,7 +110,7 @@ export default function Home() {
           >
             <motion.img
               src={photo}
-              alt="Kunj Desai"
+              alt="Shrijeet Desai"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1 }}

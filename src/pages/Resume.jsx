@@ -198,7 +198,7 @@ export default function Resume() {
           }}
         >
           <iframe
-            src="/resume.pdf"
+            src={`${import.meta.env.BASE_URL}resume.pdf`}
             title="Shrijeet Desai Resume"
             style={{
               width: "100%",
@@ -211,7 +211,7 @@ export default function Resume() {
 
         {/* Download Button */}
         <motion.a
-          href="/resume.pdf"
+          href={`${import.meta.env.BASE_URL}resume.pdf`}
           download
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}

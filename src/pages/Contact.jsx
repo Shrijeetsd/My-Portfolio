@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
-import githubLogo from "../../public/github.png";
-import linkedinLogo from "../../public/linkedin.png";
-import gmailLogo from "../../public/gmail.png";
-import whatsappLogo from "../../public/whatsapp.png";
-import instagramLogo from "../../public/insta.png";
-import facebookLogo from "../../public/facebook.png";
+const githubLogo = `${import.meta.env.BASE_URL}github.png`;
+const linkedinLogo = `${import.meta.env.BASE_URL}linkedin.png`;
+const gmailLogo = `${import.meta.env.BASE_URL}gmail.png`;
+const whatsappLogo = `${import.meta.env.BASE_URL}whatsapp.png`;
+const instagramLogo = `${import.meta.env.BASE_URL}insta.png`;
+const facebookLogo = `${import.meta.env.BASE_URL}facebook.png`;
 
 import "../CSS/Contact.css"
 import '../index.css'

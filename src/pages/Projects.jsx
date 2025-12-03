@@ -6,7 +6,7 @@ const PROJECTS = [
   {
     title: 'Dentee – Smart Dental Hospital Management System',
     desc: 'A modern, full-stack Dental Hospital Management System designed to streamline daily clinical operations. Includes modules for patient records, appointments, billing, and real-time activity monitoring.',
-    ss: '/dentee.png',
+    ss: `${import.meta.env.BASE_URL}dentee.png`,
     tech: ['React', 'Node.js', 'MongoDB', 'REST APIs'],
     live: '#',
     code: 'https://github.com/Shrijeetsd/Dentee--Dental-Clinic-Hospital'
@@ -14,7 +14,7 @@ const PROJECTS = [
   {
     title: 'Hospital Management System',
     desc: 'A centralized web-based system to manage hospital operations including patient/doctor registration, appointments, and administrative workflows, replacing manual paperwork.',
-    ss: '/hospital.jpg',
+    ss: `${import.meta.env.BASE_URL}hospital.jpg`,
     tech: ['Angular', 'Java', 'MySQL'],
     live: '#',
     code: 'https://github.com/Shrijeetsd/Hospital-Mangt.-System-Angular-Java'
